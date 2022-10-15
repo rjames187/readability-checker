@@ -2,7 +2,12 @@ import '../App.css';
 
 function Info() {
   return (
-    <div></div>
+    <div id="faq">
+        <button class="accordion">What is readability?</button>
+        <div class="panel">
+          <p>Lorem ipsum...</p>
+        </div>
+      </div>
   );
 }
 
