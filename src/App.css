@@ -1,5 +1,7 @@
 :root {
-  --color: green;
+  --r: 0;
+  --g: 180;
+  --b: 0;
 }
 
 body {
@@ -35,7 +37,7 @@ textarea {
   resize: none;
   padding: 10px;
   border-radius: 5px;
-  box-shadow: var(--color) 0px 8px 24px;
+  box-shadow: rgb(var(--r), var(--g), var(--b), 0.5) 0px 8px 24px;
 }
 
 #factors-row {

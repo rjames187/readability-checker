@@ -25,7 +25,9 @@ function updateColor (num) {
         r = Math.min(Math.abs(65 - num) * 4.63, 255)
     }
     const root = document.querySelector(':root');
-    root.style.setProperty('--color', `rgb(${r}, ${g}, ${b})`);
+    root.style.setProperty('--r', r);
+    root.style.setProperty('--g', g);
+    root.style.setProperty('--b', b);
 }
 
 export { getReadingLevel, updateColor };
