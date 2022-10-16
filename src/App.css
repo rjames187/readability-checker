@@ -108,6 +108,11 @@ ul {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+ul > div {
+  font-size: .8rem;
+  margin-right: 20px;
+}
+
 ul#hard-words {
   min-width: 200px;
 }

@@ -112,13 +112,17 @@ function Calc() {
             <div class="list-title-wrapper">
                 <h3>High Syllable Words</h3>
                 <ul id="hard-words">
-                    { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
+                    { hardestWords.length ? hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) :
+                        <div>No words with more than 3 syllables detected</div>
+                    }
                 </ul>
             </div>
             <div class="list-title-wrapper">
                 <h3>High Syllable Sentences</h3>
                 <ul id="hard-sentences">
-                    { hardestSentences.map((sentence) => <li>{sentence}</li>) }
+                    { hardestSentences.length ? hardestSentences.map((sentence) => <li>{sentence}</li>) : 
+                        <div>No sentences with more than 29 syllables detected</div>
+                    }
                 </ul>
             </div>
         </div>
