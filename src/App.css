@@ -1,6 +1,10 @@
+:root {
+  --color: green;
+}
+
 body {
   width: 100%;
-  height: 722px;
+  
   min-height: 722px;
 }
 
@@ -31,16 +35,35 @@ textarea {
   resize: none;
   padding: 10px;
   border-radius: 5px;
+  box-shadow: var(--color) 0px 8px 24px;
+}
+
+#factors-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+#results-row {
+  display: flex;
+  justify-content: space-between;
 }
 
 #hard-lists {
   display: flex;
   justify-content: space-between;
-  max-height: 200px;
+  height: 200px;
+  gap: 10px;
 }
 
 ul {
   overflow: auto;
+  border: solid grey 1px;
+  height: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 ul#hard-words {
@@ -49,6 +72,7 @@ ul#hard-words {
 
 ul#hard-sentences {
   font-size: .8rem;
+  flex: 1;
 }
 
 ::-webkit-scrollbar {

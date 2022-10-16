@@ -24,6 +24,7 @@ function Calc() {
     if (["!", "?", "."].includes(text.charAt(text.length - 1))) {
         text = text.substring(0, text.length - 1)
     }
+    text = text.replace(/\.(?!\s|$)/gm, "");
     const sentences = text.split(/[\?!\.]/);
 
     let numWords = 0;
@@ -89,10 +90,11 @@ function Calc() {
         }
     });
     setHardestSentences(hardSentencesArray);
-
-    updateColor(score);
-
   }, [input])
+
+  useEffect(() => {
+    updateColor(score);
+  }, [score]);
 
   return (
     <>

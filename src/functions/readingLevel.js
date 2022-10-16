@@ -1,6 +1,7 @@
 import { LEVEL_THRESHOLDS } from "../data";
 
 function getReadingLevel (num) {
+    if (!num) { return "Reading Level: N/A" } 
     let curLevel = 0;
     while (LEVEL_THRESHOLDS[curLevel].thresh >= 10) {
       if (num >= LEVEL_THRESHOLDS[curLevel].thresh) {
