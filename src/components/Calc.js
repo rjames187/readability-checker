@@ -35,7 +35,7 @@ function Calc() {
         let tempSent = []
 
         sent = sent.trim();
-        const words = sent.split(" ");
+        const words = sent.split(/[\s-/]+/g);
         numWords += words.length;
         
         // count syllables
