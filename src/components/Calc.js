@@ -9,6 +9,7 @@ function Calc() {
   const [count, setCount] = useState({sentences: 0, words: 0, syllables: 0});
   const [score, setScore] = useState(0);
   const [hardestWords, setHardestWords] = useState([]);
+  const [hardestSentences, setHardestSentences] = useState([]);
 
   const countText = (e) => {
     let text = e.target.value.trim();
@@ -65,7 +66,7 @@ function Calc() {
             hardWords.set(word, wordSyllables);
             sentSyllables += wordSyllables;
         });
-        hardSentences.set(sent, sentSyllables);
+        hardSentences.set(sent.join(" "), sentSyllables);
     });
 
     hardWords = new Map([...hardWords].sort((a, b) => b[1] - a[1]));
@@ -77,6 +78,17 @@ function Calc() {
         }
     });
     setHardestWords(hardWordsArray);
+
+    hardSentences = new Map([...hardSentences].sort((a, b) => b[1] - a[1]));
+
+    let hardSentencesArray = []
+    hardSentences.forEach((value, key) => {
+        if (value > 29 && hardSentencesArray.length <= 5) {
+            hardSentencesArray.push(key);
+        }
+    });
+    setHardestSentences(hardSentencesArray);
+
   }, [input])
 
   return (
@@ -84,12 +96,17 @@ function Calc() {
         <textarea onChange={countText}></textarea>
         <p>Sentences: {count.sentences}</p>
         <p>Words: {count.words}</p>
-        <p>Syllables: {count.syllables}</p>
+        <p>Estimated Syllables: {count.syllables}</p>
         <p>Score: {parseFloat(score).toFixed(2)}</p>
 
-        <ul>
-            { hardestWords.map((word) => <li>{word}</li>) }
-        </ul>
+        <div id="hard-lists">
+            <ul id="hard-words">
+                { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
+            </ul>
+            <ul id="hard-sentences">
+                { hardestSentences.map((sentence) => <li>{sentence}</li>) }
+            </ul>
+        </div>
     </>
   );
 }
