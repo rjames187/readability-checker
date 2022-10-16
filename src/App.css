@@ -32,12 +32,20 @@ body {
 }
 
 textarea {
+  border-width: 2px;;
   width: 760px;
   min-height: 200px;
   resize: none;
   padding: 10px;
   border-radius: 5px;
+  border-color: rgb(var(--r), var(--g), var(--b));
   box-shadow: rgb(var(--r), var(--g), var(--b), 0.5) 0px 8px 24px;
+  transition: 1s;
+}
+
+textarea:focus-visible {
+  outline: none;
+  border-width: 4px;
 }
 
 #factors-row {
@@ -48,6 +56,12 @@ textarea {
 #results-row {
   display: flex;
   justify-content: space-between;
+}
+
+span.context-color {
+  color: rgb(var(--r), var(--g), var(--b));
+  font-weight: 700;
+  text-shadow: rgb(var(--r), var(--g), var(--b), 0.5) 0px 0px 10px;
 }
 
 #hard-lists {

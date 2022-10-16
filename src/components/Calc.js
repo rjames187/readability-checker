@@ -100,13 +100,13 @@ function Calc() {
     <>
         <textarea onChange={countText}></textarea>
         <div id="factors-row">
-            <p>Sentences: {count.sentences}</p>
-            <p>Words: {count.words}</p>
-            <p>Estimated Syllables: {count.syllables}</p>
+            <p>Sentences: <span class="context-color">{count.sentences}</span></p>
+            <p>Words: <span class="context-color">{count.words}</span></p>
+            <p>Estimated Syllables: <span class="context-color">{count.syllables}</span></p>
         </div>
         <div id="results-row">
-            <p>Score: {parseFloat(score).toFixed(2)}</p>
-            <p>Reading Level: {getReadingLevel(score)}</p>
+            <p>Score: <span class="context-color">{parseFloat(score).toFixed(2)}</span></p>
+            <p>Reading Level: <span class="context-color">{getReadingLevel(score)}</span></p>
         </div>
         <div id="hard-lists">
             <ul id="hard-words">
