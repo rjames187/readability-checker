@@ -2,6 +2,7 @@
   --r: 0;
   --g: 180;
   --b: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
 
 .App {
   background-color: rgb(177, 196, 197);
+  background: linear-gradient(rgb(177, 196, 197), #9198e5);
   height: 100%;
   width: 100%;
   display: flex;
@@ -31,7 +33,18 @@ body {
   padding: 20px;
 }
 
+h1 {
+  background-image: linear-gradient(0.25turn, rgb(112, 124, 124), #5a63be);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  width: 350px;
+}
+
 textarea {
+  margin: 0px;
   border-width: 2px;;
   width: 760px;
   min-height: 200px;
@@ -71,6 +84,19 @@ span.context-color {
   gap: 10px;
 }
 
+.list-title-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-title-wrapper:last-child {
+  flex: 1;
+}
+
+.list-title-wrapper > h3 {
+  margin: 0px;
+}
+
 ul {
   overflow: auto;
   border: solid grey 1px;
@@ -80,6 +106,11 @@ ul {
   flex-direction: column;
   gap: 5px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+ul > div {
+  font-size: .8rem;
+  margin-right: 20px;
 }
 
 ul#hard-words {

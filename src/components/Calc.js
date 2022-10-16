@@ -35,7 +35,7 @@ function Calc() {
         let tempSent = []
 
         sent = sent.trim();
-        const words = sent.split(" ");
+        const words = sent.split(/[\s-/]+/g);
         numWords += words.length;
         
         // count syllables
@@ -109,12 +109,22 @@ function Calc() {
             <p>Reading Level: <span class="context-color">{getReadingLevel(score)}</span></p>
         </div>
         <div id="hard-lists">
-            <ul id="hard-words">
-                { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
-            </ul>
-            <ul id="hard-sentences">
-                { hardestSentences.map((sentence) => <li>{sentence}</li>) }
-            </ul>
+            <div class="list-title-wrapper">
+                <h3>High Syllable Words</h3>
+                <ul id="hard-words">
+                    { hardestWords.length ? hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) :
+                        <div>No words with more than 3 syllables detected</div>
+                    }
+                </ul>
+            </div>
+            <div class="list-title-wrapper">
+                <h3>High Syllable Sentences</h3>
+                <ul id="hard-sentences">
+                    { hardestSentences.length ? hardestSentences.map((sentence) => <li>{sentence}</li>) : 
+                        <div>No sentences with more than 29 syllables detected</div>
+                    }
+                </ul>
+            </div>
         </div>
     </>
   );
