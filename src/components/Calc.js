@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import '../App.css';
-import '../accordion.js'
 import { countSyllables } from '../functions/syllable';
 
 function Calc() {
@@ -89,7 +88,7 @@ function Calc() {
         <p>Score: {parseFloat(score).toFixed(2)}</p>
 
         <ul>
-            { hardestWords.map((word) => <li>{word}</li>) };
+            { hardestWords.map((word) => <li>{word}</li>) }
         </ul>
     </>
   );
