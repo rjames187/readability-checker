@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../App.css';
 import { countSyllables } from '../functions/syllable';
+import { getReadingLevel, updateColor } from '../functions/readingLevel';
 
 function Calc() {
   
@@ -89,16 +90,22 @@ function Calc() {
     });
     setHardestSentences(hardSentencesArray);
 
+    updateColor(score);
+
   }, [input])
 
   return (
     <>
         <textarea onChange={countText}></textarea>
-        <p>Sentences: {count.sentences}</p>
-        <p>Words: {count.words}</p>
-        <p>Estimated Syllables: {count.syllables}</p>
-        <p>Score: {parseFloat(score).toFixed(2)}</p>
-
+        <div id="factors-row">
+            <p>Sentences: {count.sentences}</p>
+            <p>Words: {count.words}</p>
+            <p>Estimated Syllables: {count.syllables}</p>
+        </div>
+        <div id="results-row">
+            <p>Score: {parseFloat(score).toFixed(2)}</p>
+            <p>Reading Level: {getReadingLevel(score)}</p>
+        </div>
         <div id="hard-lists">
             <ul id="hard-words">
                 { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
