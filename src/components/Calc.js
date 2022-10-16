@@ -109,12 +109,18 @@ function Calc() {
             <p>Reading Level: <span class="context-color">{getReadingLevel(score)}</span></p>
         </div>
         <div id="hard-lists">
-            <ul id="hard-words">
-                { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
-            </ul>
-            <ul id="hard-sentences">
-                { hardestSentences.map((sentence) => <li>{sentence}</li>) }
-            </ul>
+            <div class="list-title-wrapper">
+                <h3>High Syllable Words</h3>
+                <ul id="hard-words">
+                    { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
+                </ul>
+            </div>
+            <div class="list-title-wrapper">
+                <h3>High Syllable Sentences</h3>
+                <ul id="hard-sentences">
+                    { hardestSentences.map((sentence) => <li>{sentence}</li>) }
+                </ul>
+            </div>
         </div>
     </>
   );

@@ -3,6 +3,7 @@ import './components/Header';
 import './components/Info';
 import Header from './components/Header';
 import Calc from './components/Calc';
+import Info from './components/Info';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div id="content">
         <Header></Header>
         <Calc></Calc>
+        <Info></Info>
       </div>
     </div>
   );

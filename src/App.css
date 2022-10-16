@@ -2,6 +2,7 @@
   --r: 0;
   --g: 180;
   --b: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
 }
 
 textarea {
+  margin: 0px;
   border-width: 2px;;
   width: 760px;
   min-height: 200px;
@@ -69,6 +71,19 @@ span.context-color {
   justify-content: space-between;
   height: 200px;
   gap: 10px;
+}
+
+.list-title-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-title-wrapper:last-child {
+  flex: 1;
+}
+
+.list-title-wrapper > h3 {
+  margin: 0px;
 }
 
 ul {
