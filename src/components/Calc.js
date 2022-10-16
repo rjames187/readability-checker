@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import '../App.css';
 import { countSyllables } from '../functions/syllable';
+import { getReadingLevel, updateColor } from '../functions/readingLevel';
 
 function Calc() {
   
@@ -23,6 +24,7 @@ function Calc() {
     if (["!", "?", "."].includes(text.charAt(text.length - 1))) {
         text = text.substring(0, text.length - 1)
     }
+    text = text.replace(/\.(?!\s|$)/gm, "");
     const sentences = text.split(/[\?!\.]/);
 
     let numWords = 0;
@@ -88,17 +90,24 @@ function Calc() {
         }
     });
     setHardestSentences(hardSentencesArray);
-
   }, [input])
+
+  useEffect(() => {
+    updateColor(score);
+  }, [score]);
 
   return (
     <>
         <textarea onChange={countText}></textarea>
-        <p>Sentences: {count.sentences}</p>
-        <p>Words: {count.words}</p>
-        <p>Estimated Syllables: {count.syllables}</p>
-        <p>Score: {parseFloat(score).toFixed(2)}</p>
-
+        <div id="factors-row">
+            <p>Sentences: <span class="context-color">{count.sentences}</span></p>
+            <p>Words: <span class="context-color">{count.words}</span></p>
+            <p>Estimated Syllables: <span class="context-color">{count.syllables}</span></p>
+        </div>
+        <div id="results-row">
+            <p>Score: <span class="context-color">{parseFloat(score).toFixed(2)}</span></p>
+            <p>Reading Level: <span class="context-color">{getReadingLevel(score)}</span></p>
+        </div>
         <div id="hard-lists">
             <ul id="hard-words">
                 { hardestWords.map((word) => <li>{word.replace(/[^a-zA-Z-]+/g, "")}</li>) }
